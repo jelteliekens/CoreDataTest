@@ -13,14 +13,22 @@
 		EFD03281183BE4C900094163 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFD0327F183BE4C900094163 /* InfoPlist.strings */; };
 		EFD03283183BE4C900094163 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD03282183BE4C900094163 /* main.m */; };
 		EFD03287183BE4C900094163 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD03286183BE4C900094163 /* AppDelegate.m */; };
-		EFD0328A183BE4C900094163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD03288183BE4C900094163 /* Main.storyboard */; };
-		EFD0328D183BE4C900094163 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD0328C183BE4C900094163 /* ViewController.m */; };
 		EFD0328F183BE4C900094163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD0328E183BE4C900094163 /* Images.xcassets */; };
 		EFD03296183BE4C900094163 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD03295183BE4C900094163 /* XCTest.framework */; };
 		EFD03297183BE4C900094163 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD03276183BE4C900094163 /* Foundation.framework */; };
 		EFD03298183BE4C900094163 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD0327A183BE4C900094163 /* UIKit.framework */; };
 		EFD032A0183BE4C900094163 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFD0329E183BE4C900094163 /* InfoPlist.strings */; };
 		EFD032A2183BE4C900094163 /* CoreDataTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032A1183BE4C900094163 /* CoreDataTestTests.m */; };
+		EFD032AD183BE54A00094163 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFD032AB183BE54A00094163 /* Model.xcdatamodeld */; };
+		EFD032B2183BE70700094163 /* Persoon.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032B1183BE70700094163 /* Persoon.m */; };
+		EFD032B4183BE73700094163 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD032B3183BE73700094163 /* MainStoryboard.storyboard */; };
+		EFD032B7183BE93800094163 /* Persoon+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032B6183BE93800094163 /* Persoon+Create.m */; };
+		EFD032BA183C1F8E00094163 /* PersoonCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032B9183C1F8E00094163 /* PersoonCDTVC.m */; };
+		EFD032BD183C248400094163 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032BC183C248400094163 /* CoreDataTableViewController.m */; };
+		EFD032C3183C293C00094163 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032C2183C293C00094163 /* DetailViewController.m */; };
+		EFD032C6183C2BE800094163 /* DemoPersoonCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032C5183C2BE800094163 /* DemoPersoonCDTVC.m */; };
+		EFD032C8183C38B200094163 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD032C7183C38B200094163 /* CoreData.framework */; };
+		EFD032CB183C9A8300094163 /* AddPersoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD032CA183C9A8300094163 /* AddPersoonViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,15 +52,29 @@
 		EFD03284183BE4C900094163 /* CoreDataTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataTest-Prefix.pch"; sourceTree = "<group>"; };
 		EFD03285183BE4C900094163 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EFD03286183BE4C900094163 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EFD03289183BE4C900094163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EFD0328B183BE4C900094163 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EFD0328C183BE4C900094163 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EFD0328E183BE4C900094163 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFD03294183BE4C900094163 /* CoreDataTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD03295183BE4C900094163 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EFD0329D183BE4C900094163 /* CoreDataTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataTestTests-Info.plist"; sourceTree = "<group>"; };
 		EFD0329F183BE4C900094163 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFD032A1183BE4C900094163 /* CoreDataTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTestTests.m; sourceTree = "<group>"; };
+		EFD032AC183BE54A00094163 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		EFD032B0183BE70700094163 /* Persoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Persoon.h; sourceTree = "<group>"; };
+		EFD032B1183BE70700094163 /* Persoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Persoon.m; sourceTree = "<group>"; };
+		EFD032B3183BE73700094163 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		EFD032B5183BE93800094163 /* Persoon+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Persoon+Create.h"; sourceTree = "<group>"; };
+		EFD032B6183BE93800094163 /* Persoon+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Persoon+Create.m"; sourceTree = "<group>"; };
+		EFD032B8183C1F8E00094163 /* PersoonCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersoonCDTVC.h; sourceTree = "<group>"; };
+		EFD032B9183C1F8E00094163 /* PersoonCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersoonCDTVC.m; sourceTree = "<group>"; };
+		EFD032BB183C248400094163 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		EFD032BC183C248400094163 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		EFD032C1183C293C00094163 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EFD032C2183C293C00094163 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EFD032C4183C2BE800094163 /* DemoPersoonCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersoonCDTVC.h; sourceTree = "<group>"; };
+		EFD032C5183C2BE800094163 /* DemoPersoonCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersoonCDTVC.m; sourceTree = "<group>"; };
+		EFD032C7183C38B200094163 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EFD032C9183C9A8300094163 /* AddPersoonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPersoonViewController.h; sourceTree = "<group>"; };
+		EFD032CA183C9A8300094163 /* AddPersoonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersoonViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD032C8183C38B200094163 /* CoreData.framework in Frameworks */,
 				EFD03279183BE4C900094163 /* CoreGraphics.framework in Frameworks */,
 				EFD0327B183BE4C900094163 /* UIKit.framework in Frameworks */,
 				EFD03277183BE4C900094163 /* Foundation.framework in Frameworks */,
@@ -101,6 +124,7 @@
 		EFD03275183BE4C900094163 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFD032C7183C38B200094163 /* CoreData.framework */,
 				EFD03276183BE4C900094163 /* Foundation.framework */,
 				EFD03278183BE4C900094163 /* CoreGraphics.framework */,
 				EFD0327A183BE4C900094163 /* UIKit.framework */,
@@ -112,11 +136,16 @@
 		EFD0327C183BE4C900094163 /* CoreDataTest */ = {
 			isa = PBXGroup;
 			children = (
-				EFD03285183BE4C900094163 /* AppDelegate.h */,
-				EFD03286183BE4C900094163 /* AppDelegate.m */,
-				EFD03288183BE4C900094163 /* Main.storyboard */,
-				EFD0328B183BE4C900094163 /* ViewController.h */,
-				EFD0328C183BE4C900094163 /* ViewController.m */,
+				EFD032B3183BE73700094163 /* MainStoryboard.storyboard */,
+				EFD032B8183C1F8E00094163 /* PersoonCDTVC.h */,
+				EFD032B9183C1F8E00094163 /* PersoonCDTVC.m */,
+				EFD032C4183C2BE800094163 /* DemoPersoonCDTVC.h */,
+				EFD032C5183C2BE800094163 /* DemoPersoonCDTVC.m */,
+				EFD032C1183C293C00094163 /* DetailViewController.h */,
+				EFD032C2183C293C00094163 /* DetailViewController.m */,
+				EFD032C9183C9A8300094163 /* AddPersoonViewController.h */,
+				EFD032CA183C9A8300094163 /* AddPersoonViewController.m */,
+				EFD032AF183BE58200094163 /* CoreData */,
 				EFD0328E183BE4C900094163 /* Images.xcassets */,
 				EFD0327D183BE4C900094163 /* Supporting Files */,
 			);
@@ -126,6 +155,8 @@
 		EFD0327D183BE4C900094163 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EFD03285183BE4C900094163 /* AppDelegate.h */,
+				EFD03286183BE4C900094163 /* AppDelegate.m */,
 				EFD0327E183BE4C900094163 /* CoreDataTest-Info.plist */,
 				EFD0327F183BE4C900094163 /* InfoPlist.strings */,
 				EFD03282183BE4C900094163 /* main.m */,
@@ -150,6 +181,20 @@
 				EFD0329E183BE4C900094163 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFD032AF183BE58200094163 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EFD032AB183BE54A00094163 /* Model.xcdatamodeld */,
+				EFD032B0183BE70700094163 /* Persoon.h */,
+				EFD032B1183BE70700094163 /* Persoon.m */,
+				EFD032B5183BE93800094163 /* Persoon+Create.h */,
+				EFD032B6183BE93800094163 /* Persoon+Create.m */,
+				EFD032BB183C248400094163 /* CoreDataTableViewController.h */,
+				EFD032BC183C248400094163 /* CoreDataTableViewController.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +244,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jelte Liekens";
 				TargetAttributes = {
+					EFD03272183BE4C900094163 = {
+						DevelopmentTeam = U5WZ77576F;
+					};
 					EFD03293183BE4C900094163 = {
 						TestTargetID = EFD03272183BE4C900094163;
 					};
@@ -228,9 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD032B4183BE73700094163 /* MainStoryboard.storyboard in Resources */,
 				EFD0328F183BE4C900094163 /* Images.xcassets in Resources */,
 				EFD03281183BE4C900094163 /* InfoPlist.strings in Resources */,
-				EFD0328A183BE4C900094163 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +297,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFD0328D183BE4C900094163 /* ViewController.m in Sources */,
 				EFD03287183BE4C900094163 /* AppDelegate.m in Sources */,
+				EFD032C6183C2BE800094163 /* DemoPersoonCDTVC.m in Sources */,
+				EFD032BA183C1F8E00094163 /* PersoonCDTVC.m in Sources */,
+				EFD032CB183C9A8300094163 /* AddPersoonViewController.m in Sources */,
+				EFD032BD183C248400094163 /* CoreDataTableViewController.m in Sources */,
+				EFD032C3183C293C00094163 /* DetailViewController.m in Sources */,
 				EFD03283183BE4C900094163 /* main.m in Sources */,
+				EFD032B2183BE70700094163 /* Persoon.m in Sources */,
+				EFD032B7183BE93800094163 /* Persoon+Create.m in Sources */,
+				EFD032AD183BE54A00094163 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,14 +335,6 @@
 				EFD03280183BE4C900094163 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		EFD03288183BE4C900094163 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EFD03289183BE4C900094163 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		EFD0329E183BE4C900094163 /* InfoPlist.strings */ = {
@@ -378,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreDataTest/CoreDataTest-Prefix.pch";
 				INFOPLIST_FILE = "CoreDataTest/CoreDataTest-Info.plist";
@@ -391,6 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreDataTest/CoreDataTest-Prefix.pch";
 				INFOPLIST_FILE = "CoreDataTest/CoreDataTest-Info.plist";
@@ -470,6 +519,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFD032AB183BE54A00094163 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFD032AC183BE54A00094163 /* Model.xcdatamodel */,
+			);
+			currentVersion = EFD032AC183BE54A00094163 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFD0326B183BE4C900094163 /* Project object */;
 }
