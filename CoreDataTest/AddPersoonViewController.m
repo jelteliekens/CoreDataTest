@@ -19,46 +19,46 @@
 
 @implementation AddPersoonViewController
 
-- (IBAction)cancel:(id)sender {
-    [self.delegate addPersoonViewControllerDidCancel:self];
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.naamField becomeFirstResponder];
 }
 
-- (IBAction)save:(id)sender {
-    
-    BOOL ok = YES;
-    
-    UITableViewCell *naamCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    UITableViewCell *emailCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    UITableViewCell *adresCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+- (NSString *)naam
+{
+    return self.naamField.text;
+}
 
-    
-    if (self.naamField.text.length) {
-        naamCell.accessoryType = UITableViewCellAccessoryCheckmark;
+- (NSString *)email
+{
+    return self.emailField.text;
+}
+
+- (IBAction)test:(UITextField *)sender
+{
+    UITableViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if ([sender.text length]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        naamCell.accessoryType = UITableViewCellAccessoryNone;
-        ok = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
-    if (self.emailField.text.length) {
-        emailCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        emailCell.accessoryType = UITableViewCellAccessoryNone;
-        ok = NO;
-    }
-    
-    if (self.adresField.text.length) {
-        adresCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        adresCell.accessoryType = UITableViewCellAccessoryNone;
-        ok = NO;
-    }
-    
-    if (ok) {
-        [self.delegate playerDetailsViewController:self
-                                AddPersoonWithName:self.naamField.text
-                                             Email:self.emailField.text
-                                             Adres:self.adresField.text];
-    }
+
+}
+
+- (IBAction)enterPressedNaam:(id)sender {
+    [self.naamField resignFirstResponder];
+    [self.emailField becomeFirstResponder];
+}
+
+- (IBAction)enterPressedEmail:(id)sender {
+    [self.emailField resignFirstResponder];
+    [self.adresField becomeFirstResponder];
+}
+
+- (IBAction)enterPressedAdres:(id)sender {
+    [self.adresField resignFirstResponder];
+    [self.naamField becomeFirstResponder];
 }
 
 @end

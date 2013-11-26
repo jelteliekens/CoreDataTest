@@ -11,18 +11,10 @@
 
 @class AddPersoonViewController;
 
-@protocol AddPersoonViewControllerDelegate <NSObject>
-- (void)addPersoonViewControllerDidCancel:(AddPersoonViewController *)controller;
-- (void)playerDetailsViewController:(AddPersoonViewController *)controller AddPersoonWithName:(NSString *)naam Email:(NSString *)email Adres:(NSString *)adres;
-
-@end
-
 @interface AddPersoonViewController : UITableViewController
 
-@property (nonatomic, weak) id <AddPersoonViewControllerDelegate> delegate;
-
-
-- (IBAction)cancel:(id)sender;
-- (IBAction)save:(id)sender;
+@property (nonatomic, readonly) NSString * naam;
+@property (nonatomic, readonly) NSString * email;
+@property (nonatomic, readonly) NSString * adres;
 
 @end

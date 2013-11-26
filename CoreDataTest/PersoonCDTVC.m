@@ -8,14 +8,23 @@
 
 #import "PersoonCDTVC.h"
 #import "Persoon+Create.h"
+#import "AddPersoonViewController.h"
 
-@interface PersoonCDTVC ()
+@interface PersoonCDTVC () <UIActionSheetDelegate>
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *editButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *cancelButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *deleteButton;
 
 @end
 
 @implementation PersoonCDTVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self updateButtonsToMatchTableState];
+}
 
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
@@ -28,6 +37,16 @@
     } else {
         self.fetchedResultsController = nil;
     }
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self updateButtonsToMatchTableState];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self updateButtonsToMatchTableState];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -54,62 +73,107 @@
         }
         
     } else if ([segue.identifier isEqualToString:@"Toevoegen"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        AddPersoonViewController *addPersoonViewController = [navigationController viewControllers][0];
-        addPersoonViewController.delegate = self;
+        //toDo
     }
 }
 
-- (IBAction)edit:(UIBarButtonItem *)sender {
-    if ([self.tableView isEditing]) {
-        self.editButton.style = UIBarButtonItemStyleBordered;
-        self.editButton.title = @"Edit";
-        [self.tableView setEditing: NO animated: YES];
+- (IBAction)saveAdding:(UIStoryboardSegue *)segue {
+    AddPersoonViewController *vc = segue.sourceViewController;
+}
 
+- (IBAction)cancelAdding:(UIStoryboardSegue *)segue {
+}
+
+- (IBAction)editAction:(UIBarButtonItem *)sender {
+    [self.tableView setEditing:YES animated:YES];
+    [self updateButtonsToMatchTableState];
+}
+
+- (IBAction)cancelAction:(UIBarButtonItem *)sender {
+    [self.tableView setEditing:NO animated:YES];
+    [self updateButtonsToMatchTableState];
+}
+
+- (IBAction)deleteAction:(UIBarButtonItem *)sender {
+	
+    NSString *actionTitle;
+    if (([[self.tableView indexPathsForSelectedRows] count] == 1)) {
+        actionTitle = NSLocalizedString(@"Are you sure you want to remove this item?", @"");
+    }
+    else
+    {
+        actionTitle = NSLocalizedString(@"Are you sure you want to remove these items?", @"");
+    }
+    
+    NSString *cancelTitle = NSLocalizedString(@"Cancel", @"Cancel title for item removal action");
+    NSString *okTitle = NSLocalizedString(@"OK", @"OK title for item removal action");
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionTitle
+                                                             delegate:self
+                                                    cancelButtonTitle:cancelTitle
+                                               destructiveButtonTitle:okTitle
+                                                    otherButtonTitles:nil];
+    
+	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+
+	[actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        
+        NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
+        
+        if (selectedRows.count > 0) {
+            
+            //ToDo
+            
+
+            
+        }
+        
+        [self.tableView setEditing:NO animated:YES];
+        [self updateButtonsToMatchTableState];
+        
+    }
+}
+
+-(void) updateButtonsToMatchTableState
+{
+    if (self.tableView.editing) {
+        
+        self.navigationItem.rightBarButtonItem = self.cancelButton;
+        self.navigationItem.leftBarButtonItem = self.deleteButton;
+        [self updateDeleteButtonTitle];
+        
     } else {
-        self.editButton.style = UIBarButtonItemStyleDone;
-        self.editButton.title = @"Done";
-        [self.tableView setEditing: YES animated: YES];
+        
+        self.navigationItem.leftBarButtonItem = self.addButton;
+        
+        if ([self.tableView numberOfRowsInSection:0] > 0) {
+            self.editButton.enabled = YES;
+        } else {
+            self.editButton.enabled = NO;
+        }
+        
+        self.navigationItem.rightBarButtonItem = self.editButton;
     }
 }
 
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) updateDeleteButtonTitle
 {
-    return YES;
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewCellEditingStyleDelete;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self removePersoonAtIndex:indexPath];
-    }
-}
+    NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
 
-- (void) removePersoonAtIndex:(NSIndexPath *) indexPath {
-    Persoon *persoon = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if (persoon) {
-        [self.managedObjectContext deleteObject:persoon];
+    if (selectedRows.count > 0) {
+        self.deleteButton.enabled = YES;
+    } else {
+        self.deleteButton.enabled = NO;
     }
     
-    [self.tableView reloadData];
-}
-
-- (void)addPersoonViewControllerDidCancel:(AddPersoonViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)playerDetailsViewController:(AddPersoonViewController *)controller AddPersoonWithName:(NSString *)naam Email:(NSString *)email Adres:(NSString *) adres
-{
-    [Persoon persoonMetNaam:naam Email:email Adres:adres inManagedObjectContext:self.managedObjectContext];
-    [self.tableView reloadData];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSString *titleFormatString = NSLocalizedString(@"Delete (%d)", @"Title for delete button with placeholder for number");
+    self.deleteButton.title = [NSString stringWithFormat:titleFormatString, selectedRows.count];
 }
 
 @end

@@ -12,8 +12,13 @@
 
 @class AddPersoonViewController;
 
-@interface PersoonCDTVC : CoreDataTableViewController <AddPersoonViewControllerDelegate>
+@interface PersoonCDTVC : CoreDataTableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+
+- (IBAction)saveAdding:(UIStoryboardSegue *)segue;
+- (IBAction)cancelAdding:(UIStoryboardSegue *)segue;
+
 
 @end

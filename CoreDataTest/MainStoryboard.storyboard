@@ -8,20 +8,20 @@
         <scene sceneID="ZD9-AC-cNO">
             <objects>
                 <tableViewController id="Qwf-QI-7CY" customClass="DemoPersoonCDTVC" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="q3M-bG-0nO">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="q3M-bG-0nO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Persoon Description" textLabel="zBH-4M-moE" style="IBUITableViewCellStyleDefault" id="N3G-mo-0ih">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Persoon Description" textLabel="zBH-4M-moE" style="IBUITableViewCellStyleDefault" id="N3G-mo-0ih">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N3G-mo-0ih" id="5Jx-FO-8Mh">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zBH-4M-moE">
-                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -29,9 +29,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="VH3-ff-8ca" kind="push" identifier="setPersoon:" id="tpc-vh-ksp"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -39,29 +36,46 @@
                             <outlet property="delegate" destination="Qwf-QI-7CY" id="EMJ-xt-2q0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Personen" id="aFd-ag-hIj">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="ZGb-gf-g1Z">
-                            <connections>
-                                <action selector="edit:" destination="Qwf-QI-7CY" id="MMf-Jv-hR5"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ACr-bI-cjE">
-                            <connections>
-                                <segue destination="zyg-KZ-TkZ" kind="modal" identifier="Toevoegen" modalTransitionStyle="coverVertical" id="3XU-fd-M6N"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Personen" id="Ghf-k9-MTg"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="editButton" destination="ZGb-gf-g1Z" id="kPD-Rw-qha"/>
+                        <outlet property="addButton" destination="No1-MI-LdE" id="Gat-BQ-gbE"/>
+                        <outlet property="cancelButton" destination="pEi-If-R3v" id="DjV-2x-07A"/>
+                        <outlet property="deleteButton" destination="8sS-dZ-lQd" id="r6k-YL-3Xx"/>
+                        <outlet property="editButton" destination="lbH-iM-w7U" id="rne-el-nOl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9O-Qp-LzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="add" id="No1-MI-LdE">
+                    <connections>
+                        <segue destination="DB9-Du-zFZ" kind="modal" identifier="Toevoegen" modalTransitionStyle="coverVertical" id="ox3-UM-0DN"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Delete (0)" id="8sS-dZ-lQd">
+                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="deleteAction:" destination="Qwf-QI-7CY" id="Uxy-US-vdA"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem style="done" systemItem="cancel" id="pEi-If-R3v">
+                    <connections>
+                        <action selector="cancelAction:" destination="Qwf-QI-7CY" id="Cp4-n7-lCn"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="edit" id="lbH-iM-w7U">
+                    <connections>
+                        <action selector="editAction:" destination="Qwf-QI-7CY" id="Jca-Hu-r2j"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="923" y="117"/>
         </scene>
         <!--Add Persoon View Controller - Persoon Toevoegen-->
         <scene sceneID="Dr6-Wk-AVA">
             <objects>
+                <exit id="ZuZ-jn-FMz" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ih-d8-uc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="fSt-te-u8u" customClass="AddPersoonViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="SvA-gj-V4p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -70,7 +84,7 @@
                         <sections>
                             <tableViewSection headerTitle="Naam" id="vvv-uA-cai">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aIb-gE-Lyz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aIb-gE-Lyz">
                                         <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aIb-gE-Lyz" id="yuY-u1-DKv">
@@ -82,6 +96,10 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="enterPressedNaam:" destination="fSt-te-u8u" eventType="editingDidEndOnExit" id="haQ-0b-9Wh"/>
+                                                        <action selector="test:" destination="fSt-te-u8u" eventType="editingChanged" id="CJm-KI-zjd"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -90,7 +108,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Email" id="coO-4d-iA6">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yGi-Uz-dxS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yGi-Uz-dxS">
                                         <rect key="frame" x="0.0" y="211" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yGi-Uz-dxS" id="scP-aD-CvM">
@@ -102,6 +120,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="enterPressedEmail:" destination="fSt-te-u8u" eventType="editingDidEndOnExit" id="Z09-zY-Mbp"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -110,7 +131,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Adres" id="mkg-if-gVR">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2dc-zv-Kyt">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2dc-zv-Kyt">
                                         <rect key="frame" x="0.0" y="303" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dc-zv-Kyt" id="Tq4-1W-wrK">
@@ -122,6 +143,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="enterPressedAdres:" destination="fSt-te-u8u" eventType="editingDidEndOnExit" id="Lnx-pu-8ao"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -137,12 +161,12 @@
                     <navigationItem key="navigationItem" title="Persoon Toevoegen" id="eJu-zH-9WK">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="c49-Hv-qew">
                             <connections>
-                                <action selector="cancel:" destination="fSt-te-u8u" id="3nD-Yg-bo7"/>
+                                <segue destination="ZuZ-jn-FMz" kind="unwind" unwindAction="cancelAdding:" id="dTz-yl-iZZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="3qa-tg-xlf">
                             <connections>
-                                <action selector="save:" destination="fSt-te-u8u" id="NNA-KI-q8S"/>
+                                <segue destination="ZuZ-jn-FMz" kind="unwind" unwindAction="saveAdding:" id="7Ha-eh-1Lu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -152,57 +176,8 @@
                         <outlet property="naamField" destination="ktY-iu-oHl" id="Gum-Q8-sSu"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ih-d8-uc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902" y="-657"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="lCw-2A-tQq">
-            <objects>
-                <viewController id="VH3-ff-8ca" customClass="DetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vLg-VC-8rT"/>
-                        <viewControllerLayoutGuide type="bottom" id="NNR-M4-1TS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eRv-7M-fl8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Naam:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-YN-RlX">
-                                <rect key="frame" x="20" y="112" width="51" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-fb-wSN">
-                                <rect key="frame" x="20" y="141" width="47" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adres:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-4F-Gas">
-                                <rect key="frame" x="20" y="170" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Um-lx-mnA">
-                                <rect key="frame" x="79" y="112" width="221" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XYI-Ki-Kyt"/>
-                    <connections>
-                        <outlet property="naamLabel" destination="5Um-lx-mnA" id="J52-MX-sS6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ibu-T3-W46" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1414" y="117"/>
+            <point key="canvasLocation" x="2182" y="-617"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QGM-Kk-nDL">
@@ -223,22 +198,22 @@
             <point key="canvasLocation" x="397" y="117"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="KTo-jV-K1T">
+        <scene sceneID="TTa-w2-qBd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zyg-KZ-TkZ" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Zj-C9-csq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DB9-Du-zFZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dTV-u3-FWF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JOa-j0-JpO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fSt-te-u8u" kind="relationship" relationship="rootViewController" id="VEm-uv-id3"/>
+                        <segue destination="fSt-te-u8u" kind="relationship" relationship="rootViewController" id="2zG-xP-1bb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sy6-BW-xJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="-657"/>
+            <point key="canvasLocation" x="1656" y="-617"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
